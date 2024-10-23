@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Profile Form</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Name field -->
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name"  value="{{profile.name}}" name="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            
+            <!-- Profile Picture Upload -->
+            <div class="mb-3">
+                <label for="profile_picture" class="form-label">Profile Picture</label>
+                <input type="file" id="profile_picture" value="{{profile.profile_picture}}" name="profile_picture" class="form-control" accept="image/*">
+            </div>
+
+            <!-- Bio field -->
+            <div class="mb-3">
+                <label for="bio" class="form-label">Bio</label>
+                <textarea id="bio" name="bio" class="form-control" value="{{profile.bio}}" rows="3" placeholder="Enter a short bio"></textarea>
+            </div>
+
+           
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
